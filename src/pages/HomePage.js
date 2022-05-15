@@ -12,10 +12,8 @@ const HomePage = () => {
   const setSuggestionHandler = () => {
     axios
       .get(`http://api.vajehyab.com/v3/search?token=${token}&q=${input}&type=exact&filter=${database}`)
-      // .get(`http://api.vajehyab.com/v3/suggest?token=${token}&q=${input}`)
       .then((res) => {
         setMeaning(res.data.data.results)
-        // console.log(res);
       })
       .catch((err) => console.log(err))
   }
@@ -64,9 +62,6 @@ const HomePage = () => {
       <input value={input} type="text" list="data" onChange={changeInputHandler} />
       <datalist id="data">
       
-      {/* {suggestions? suggestions.map((item , key) => {
-      return  <option key={key} value={item} />
-      }) : ''} */}
       </datalist>
 
       <button onClick={getResultHandler}>search</button>
