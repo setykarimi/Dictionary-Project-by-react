@@ -59,10 +59,8 @@ const HomePage = () => {
 
       </div>
 
-      <input value={input} type="text" list="data" onChange={changeInputHandler} />
-      <datalist id="data">
-      
-      </datalist>
+      <input value={input} type="text" onChange={changeInputHandler} />
+    
 
       <button onClick={getResultHandler}>search</button>
       <span>{meaning.map((item , key) => {
