@@ -6,6 +6,10 @@ const HomePage = () => {
   const [meaning, setMeaning] = useState([])
   const [database, setDatabase] = useState('dehkhoda');
   const [suggestions, setSuggestions] = useState('آسمان');
+  const databases = { dehkhoda : "dehkhoda" , amid: "amid"} 
+  console.log(databases); 
+  console.log(databases.dehkhoda);
+  console.log(databases.amid);
 
   const token = "68283.WF5AdpjT2PSP12ePMldnNyuByZJ6kdGXsuerEhjd"
 
@@ -23,8 +27,7 @@ const HomePage = () => {
     axios
       .get(`http://api.vajehyab.com/v3/search?token=${token}&q=${input}&type=exact&filter=${database}`)
       .then((res) => {
-          setMeaning(res.data.data.results)
-        
+        setMeaning(res.data.data.results)
       })
       .catch((err) => console.log(err))
   }, [database])
@@ -35,7 +38,6 @@ const HomePage = () => {
     axios
       .get(`http://api.vajehyab.com/v3/suggest?token=${token}&q=${input}`)
       .then((res) => {
-        console.log(res.data.data.suggestion);
         setSuggestions(res.data.data.suggestion)
       })
       .catch((err) => console.log(err))
@@ -60,16 +62,17 @@ const HomePage = () => {
       </div>
 
       <input value={input} type="text" onChange={changeInputHandler} />
-    
+
 
       <button onClick={getResultHandler}>search</button>
-      <span>{meaning.map((item , key) => {
-        return (
-        <span key={key}>
-        {item.text}
-        </span>
-        )
-      })}</span>
+      <span>
+        {meaning.map((item, key) => {
+          return (
+            <span key={key}>
+              {item.text}
+            </span>
+          )
+        })}</span>
     </div>
   );
 }
