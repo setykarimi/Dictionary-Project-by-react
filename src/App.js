@@ -4,6 +4,7 @@ import AboutUs from './pages/AboutUs'
 import Layout from './Layout/Layout'
 import routes from './routes'
 import NotFound from './pages/NotFound'
+import './components/components.scss'
 
 function App() {
   return (
