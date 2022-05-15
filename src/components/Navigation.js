@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 const Navigation = () => {
  return (
@@ -6,15 +6,15 @@ const Navigation = () => {
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">خانه</Link>
         </li>
         <li>
-          <Link to="/about-us">About Us</Link>
+          <Link to="/about-us"></Link>درباره ما
         </li>
 
-        <li>
-          <Link to="/blog">About Us</Link>
-        </li>
+        {/* <li>
+          <Link to="/blog">Blog</Link>
+        </li> */}
       </ul>
 
     </nav>
