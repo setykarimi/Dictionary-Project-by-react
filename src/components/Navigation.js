@@ -9,12 +9,9 @@ const Navigation = () => {
           <Link to="/">خانه</Link>
         </li>
         <li>
-          <Link to="/about-us"></Link>درباره ما
+          <Link to="/about-us">درباره ما</Link>
         </li>
 
-        {/* <li>
-          <Link to="/blog">Blog</Link>
-        </li> */}
       </ul>
 
     </nav>
