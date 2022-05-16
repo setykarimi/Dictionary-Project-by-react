@@ -8,13 +8,12 @@ import './components/components.scss'
 function App() {
   return (
     <>
-
-<Layout>
-      <Routes>
-        <Route path='/' exact={true} element={<HomePage />} />
-        <Route path='/about-us' element={<AboutUs />} />
-        <Route path="*" element={<NotFound/>} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path='/' exact={true} element={<HomePage />} />
+          <Route path='/about-us' element={<AboutUs />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </Layout>
     </>
   )
