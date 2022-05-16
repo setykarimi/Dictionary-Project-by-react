@@ -94,26 +94,28 @@ const HomePage = () => {
     isfahaniDatabaseHandler()
   }
 
-  const getResultHandler = () => {
+  const getResultHandler = (e) => {
+    if (e.key === 'Enter') {
     setMeaningHandler()
     amidDatabaseHandler()
     moeinDatabaseHandler()
     motaradefDatabaseHandler()
     suggestionsHandler()
+    }
   }
 
   return (
     <div className="App">
 
-      <div>
-        <button onClick={changDatabaseHandler} value="isfahani">لهجه و گویش اصفهانی</button>
+    
+        {/* <button onClick={changDatabaseHandler} value="isfahani">لهجه و گویش اصفهانی</button> */}
 
-      </div>
+  
 
-      <input value={input} type="text" onChange={changeInputHandler} />
+      <input value={input} type="text" onChange={changeInputHandler} onKeyDown={getResultHandler}/>
 
 
-      <button onClick={getResultHandler}>search</button>
+      {/* <button onClick={getResultHandler}>search</button> */}
 
      
 
@@ -126,7 +128,6 @@ const HomePage = () => {
           )
         })}
 
-
         {amidDatabase.map((item, key) => {
           return (
             <div key={key}>
@@ -136,8 +137,6 @@ const HomePage = () => {
            )
         })}
      
-
-    
         {moeinDatabase.map((item, key) => {
           return (
             <div key={key}>
@@ -147,8 +146,6 @@ const HomePage = () => {
            )
         })}
      
-
-      
         {motaradefDatabase.map((item, key) => {
           return (
             <div key={key}>
@@ -158,8 +155,7 @@ const HomePage = () => {
            )
         })}
      
-
-      {suggestions.map((suggest , key) => {
+        {suggestions.map((suggest , key) => {
        return (
          <div key={key}>
          <span>
@@ -167,7 +163,7 @@ const HomePage = () => {
          </span>
          </div>
        )
-     })}
+        })}
      
       
         
