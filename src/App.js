@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import AboutUs from './pages/AboutUs'
 import Layout from './Layout/Layout'
-import routes from './routes'
 import NotFound from './pages/NotFound'
 import './components/components.scss'
 
