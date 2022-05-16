@@ -41,12 +41,11 @@ body{
 
 }
 
-// a{
-//   text-decoration: none;
-//   color: #222;
-//   font-family: 'Vazir-Bold';
-//   transition: .5s ease;
-//   &:hover{
-//     color: #444;
-//   }
-// }
+a{
+  text-decoration: none;
+  transition: .5s ease;
+  color: #fff;
+  &:hover{
+    color: rgb(228, 228, 228);
+  }
+}
