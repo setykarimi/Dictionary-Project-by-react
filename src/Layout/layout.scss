@@ -1,5 +1,74 @@
-.container{
+.container {
     width: 96%;
-    height: 90vh;
+    height: 80vh;
     margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .search_input {
+        margin: auto;
+        transition: all 0.3s step-end;
+        width: 50em;
+       
+        input {
+            width: 100%;
+            height: 2.8em;
+            border-radius: 0.7em;
+            outline: none;
+            border: 0;
+            padding: 0.3em 1.5em;
+            transition: border 0.4s ease-in-out;
+            border: 2px solid transparent;
+            animation: width 1s;
+        }
+
+
+        &::placeholder {
+            font-size: 1.2em;
+            color: #bfbfbf;
+        }
+
+        &:focus {
+            border: 2px solid #5d14a4;
+        }
+    }
+}
+
+@keyframes width {
+    from {
+        opacity: 0;
+        width: 0;
+    }
+
+    to {
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+header {
+    display: flex;
+    width: 96%;
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
+
+    .hamburger-menu{
+        background: transparent;
+        outline: none;
+        border: none;
+        position: absolute;
+        right: 2em;
+        top: 1em;
+    }
+    
+    
+}
+
+footer {
+    display: flex;
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
 }
