@@ -7,7 +7,7 @@ const HomePage = () => {
   const [database, setDatabase] = useState('dehkhoda');
   const [suggestions, setSuggestions] = useState([]);
   const databases =
-  { dehkhoda : "dehkhoda" , amid: "amid" , moein : "moein" , motaradef : "motaradef" , isfahani : "isfahani"} ;
+    { dehkhoda: "dehkhoda", amid: "amid", moein: "moein", motaradef: "motaradef", isfahani: "isfahani" };
   const [amidDatabase, setAmidDatabase] = useState([])
   const [moeinDatabase, setMoeinDatabase] = useState([])
   const [motaradefDatabase, setMotaradefDatabase] = useState([])
@@ -65,29 +65,29 @@ const HomePage = () => {
   }
 
   const suggestionsHandler = () => {
-   axios
-   .get (`http://api.vajehyab.com/v3/suggest?token=${token}&q=${input}`)
-   .then ((res) => {
-     console.log("suggestion" , res.data.data.suggestion)
-     setSuggestions(res.data.data.suggestion)
-   })
-   .catch((err) => {})
+    axios
+      .get(`http://api.vajehyab.com/v3/suggest?token=${token}&q=${input}`)
+      .then((res) => {
+        console.log("suggestion", res.data.data.suggestion)
+        setSuggestions(res.data.data.suggestion)
+      })
+      .catch((err) => { })
   }
 
   const isfahaniDatabaseHandler = () => {
     axios
-    .get(`http://api.vajehyab.com/v3/search?token=${token}&q=${input}&type=exact&filter=${databases.isfahani}`)
-    .then((res) => {
-      console.log(res.data.data.results)
-      setIsfahaniDatabase(res.data.data.results)
-    })
-    .catch((err) => console.log(err))
+      .get(`http://api.vajehyab.com/v3/search?token=${token}&q=${input}&type=exact&filter=${databases.isfahani}`)
+      .then((res) => {
+        console.log(res.data.data.results)
+        setIsfahaniDatabase(res.data.data.results)
+      })
+      .catch((err) => console.log(err))
   }
 
 
   const changeInputHandler = (e) => {
     setInput(e.target.value)
-    
+
   }
 
   const changDatabaseHandler = (e) => {
@@ -96,78 +96,76 @@ const HomePage = () => {
 
   const getResultHandler = (e) => {
     if (e.key === 'Enter') {
-    setMeaningHandler()
-    amidDatabaseHandler()
-    moeinDatabaseHandler()
-    motaradefDatabaseHandler()
-    suggestionsHandler()
+      setMeaningHandler()
+      amidDatabaseHandler()
+      moeinDatabaseHandler()
+      motaradefDatabaseHandler()
+      suggestionsHandler()
     }
   }
 
   return (
-    <div className="App">
+    <>
 
-    
-        {/* <button onClick={changDatabaseHandler} value="isfahani">لهجه و گویش اصفهانی</button> */}
 
-  
+      {/* <button onClick={changDatabaseHandler} value="isfahani">لهجه و گویش اصفهانی</button> */}
 
-      <input value={input} type="text" onChange={changeInputHandler} onKeyDown={getResultHandler}/>
 
+
+      <div  className='search_input'>
+       <input placeholder='جستجو واژه مورد نظر' value={input} type="text" onChange={changeInputHandler} onKeyDown={getResultHandler} />
+      </div>
 
       {/* <button onClick={getResultHandler}>search</button> */}
 
-     
 
-        {meaning.map((item, key) => {
-          return (
-            <span key={key}>
-               <h4>{item.source}</h4>
-              {item.text}
+
+      {meaning.map((item, key) => {
+        return (
+          <span key={key}>
+            <h4>{item.source}</h4>
+            {item.text}
+          </span>
+        )
+      })}
+
+      {amidDatabase.map((item, key) => {
+        return (
+          <div key={key}>
+            <h4> {item.source}</h4><span>تلفظ {item.pron}</span>
+            <p>{item.text}</p>
+          </div>
+        )
+      })}
+
+      {moeinDatabase.map((item, key) => {
+        return (
+          <div key={key}>
+            <h4> {item.source}</h4><span></span>
+            <p><b>معنی :</b> {item.text}</p>
+          </div>
+        )
+      })}
+
+      {motaradefDatabase.map((item, key) => {
+        return (
+          <div key={key}>
+            <h4> {item.source}</h4>
+            <p><b>معنی :</b> {item.text}</p>
+          </div>
+        )
+      })}
+
+      {suggestions.map((suggest, key) => {
+        return (
+          <div key={key}>
+            <span>
+              {suggest},
             </span>
-          )
-        })}
-
-        {amidDatabase.map((item, key) => {
-          return (
-            <div key={key}>
-              <h4> {item.source}</h4><span>تلفظ {item.pron}</span>
-              <p>{item.text}</p>
-            </div>
-           )
-        })}
-     
-        {moeinDatabase.map((item, key) => {
-          return (
-            <div key={key}>
-              <h4> {item.source}</h4><span></span>
-              <p><b>معنی :</b> {item.text}</p>
-            </div>
-           )
-        })}
-     
-        {motaradefDatabase.map((item, key) => {
-          return (
-            <div key={key}>
-              <h4> {item.source}</h4>
-              <p><b>معنی :</b> {item.text}</p>
-            </div>
-           )
-        })}
-     
-        {suggestions.map((suggest , key) => {
-       return (
-         <div key={key}>
-         <span>
-           {suggest}, 
-         </span>
-         </div>
-       )
-        })}
-     
-      
-        
-    </div>
+          </div>
+        )
+      })}
+    </>
   );
 }
 
