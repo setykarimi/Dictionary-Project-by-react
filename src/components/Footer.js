@@ -1,6 +1,9 @@
 const Footer = () => {
     return (
-        <footer>footer</footer>
+        <footer>
+        <span>تمامی حقوق سایت محفوظ است.
+        </span>
+        </footer>
     )
 }
 
