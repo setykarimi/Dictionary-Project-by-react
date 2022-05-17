@@ -6,10 +6,12 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow-y: auto;
     .search_input {
         margin: auto;
         transition: all 0.3s step-end;
         width: 50em;
+        position: relative;
        
         input {
             width: 100%;
@@ -23,6 +25,13 @@
             animation: width 1s;
         }
 
+        img{
+            position: absolute;
+            left: -1.2em;
+            width: 1.3em;
+            height: 1.3em;
+            top: .8em;
+        }
 
         &::placeholder {
             font-size: 1.2em;
@@ -32,6 +41,14 @@
         &:focus {
             border: 2px solid #5d14a4;
         }
+
+        
+            
+        
+    }
+
+    .meaning-section{
+        width: 50em;
     }
 }
 

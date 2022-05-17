@@ -1,14 +1,39 @@
+@font-face {
+    font-family: "Vazir";
+    src: url("../fonts/Vazir-FD.ttf");
+}
+
+@font-face {
+    font-family: "Vazir-Black";
+    src: url(../fonts/Vazir-Black-FD.ttf);
+}
+
+@font-face {
+    font-family: "Vazir-Bold";
+    src: url(../fonts/Vazir-Bold-FD.ttf);
+}
+
+@font-face {
+    font-family: "Vazir-Medium";
+    src: url(../fonts/Vazir-Medium-FD.ttf);
+}
+
+@font-face {
+    font-family: "Vazir-Thin";
+    src: url(../fonts/Vazir-Thin-FD.ttf);
+}
+
 nav {
     position: absolute;
     right: 0;
     top: 0;
-    background: linear-gradient(270deg, #5D14A4 -13.21%, rgb(125, 49, 202)100%);
+    background: linear-gradient(270deg, #5d14a4 -13.21%, rgb(125, 49, 202) 100%);
     z-index: 2;
     height: 100vh;
     width: 15vw;
-    border-top-left-radius: .7em;
-    border-bottom-left-radius: .7em;
-    transition: .5s ease;
+    border-top-left-radius: 0.7em;
+    border-bottom-left-radius: 0.7em;
+    transition: 0.5s ease;
     ul {
         display: flex;
         flex-direction: column;
@@ -22,7 +47,7 @@ nav {
         }
     }
 
-    .close-icon{
+    .close-icon {
         position: absolute;
         top: 1em;
         left: 1em;
@@ -32,13 +57,38 @@ nav {
         width: 1.5em;
         height: 1.5em;
         cursor: pointer;
-        img{
+        img {
             width: 100%;
             height: 100%;
         }
     }
 
-    &.closed{
+    &.closed {
         right: -100em;
     }
 }
+
+footer {
+    span {
+        font-size: 0.8em;
+    }
+}
+
+
+.database-title{
+    font-family: 'Vazir-Bold';
+    margin: 2.5em 0 .5em 0;
+    position: relative;
+    padding-right: 10px;
+    &::after{
+        content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 8em;
+  height: 0.5em;
+  border-top: 1px solid white;
+  z-index: -1;
+    }
+}
+
