@@ -8,6 +8,7 @@ nav {
     width: 15vw;
     border-top-left-radius: .7em;
     border-bottom-left-radius: .7em;
+    transition: .5s ease;
     ul {
         display: flex;
         flex-direction: column;
@@ -30,9 +31,14 @@ nav {
         border: 0;
         width: 1.5em;
         height: 1.5em;
+        cursor: pointer;
         img{
             width: 100%;
             height: 100%;
         }
+    }
+
+    &.closed{
+        right: -100em;
     }
 }
