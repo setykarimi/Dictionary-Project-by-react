@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Search from '../img/search-icon.svg'
 
 const HomePage = () => {
   const [input, setInput] = useState('');
@@ -106,22 +107,15 @@ const HomePage = () => {
 
   return (
     <>
-
-
-      {/* <button onClick={changDatabaseHandler} value="isfahani">لهجه و گویش اصفهانی</button> */}
-
-
-
-      <div  className='search_input'>
-       <input placeholder='جستجو واژه مورد نظر' value={input} type="text" onChange={changeInputHandler} onKeyDown={getResultHandler} />
+      <div className='search_input'>
+        <input placeholder='جستجو واژه مورد نظر' value={input} type="text" onChange={changeInputHandler} onKeyDown={getResultHandler} />
+        <img src={Search} alt="search-icon" />
       </div>
 
-      {/* <button onClick={getResultHandler}>search</button> */}
 
+<section className='meaning-section'>
 
-
-      {meaning && meaning.length !== 0 ? <h3 className='fw-bold database-title'>دهخدا</h3> : ''}
-
+      {meaning && meaning.length !== 0 ? <h3 className='database-title'>دهخدا</h3> : ''}
       {meaning.map((item, key) => {
         return (
           <span key={key}>
@@ -131,43 +125,56 @@ const HomePage = () => {
       })}
 
 
+      {amidDatabase && amidDatabase.length !== 0 ? <h3 className='database-title'>عمید</h3> : ''}
       {amidDatabase.map((item, key) => {
         return (
+         
           <div key={key}>
-            <h4> {item.source}</h4><span>تلفظ {item.pron}</span>
-            <p>{item.text}</p>
+          <span>تلفظ {item.pron}</span>
+            <p>
+             {item.text}
+             </p>
           </div>
         )
       })}
 
+
+      {moeinDatabase && moeinDatabase.length !== 0 ? <h3 className='database-title'>معین</h3> : ''}
       {moeinDatabase.map((item, key) => {
         return (
           <div key={key}>
-            <h4> {item.source}</h4><span></span>
-            <p><b>معنی :</b> {item.text}</p>
+            <p>
+             {item.text}
+             </p>
           </div>
         )
       })}
 
+      {motaradefDatabase && motaradefDatabase.length !== 0 ? <h3 className='database-title'>واژگان مترادف و متضاد</h3> : ''}
       {motaradefDatabase.map((item, key) => {
         return (
           <div key={key}>
-            <h4> {item.source}</h4>
-            <p><b>معنی :</b> {item.text}</p>
+            <p>
+             {item.text}
+             </p>
           </div>
         )
       })}
 
+
+      {suggestions && suggestions.length !== 0 ? <h3 className='text-center'>واژگان مشابه</h3> : ''}
       {suggestions.map((suggest, key) => {
         return (
           <div key={key}>
             <span>
-              {suggest},
-            </span>
+             {suggest}, 
+             </span>
           </div>
         )
       })}
+      </section>
     </>
+    
   );
 }
 
