@@ -120,14 +120,16 @@ const HomePage = () => {
 
 
 
+      {meaning && meaning.length !== 0 ? <h3 className='fw-bold database-title'>دهخدا</h3> : ''}
+
       {meaning.map((item, key) => {
         return (
           <span key={key}>
-            <h4>{item.source}</h4>
             {item.text}
           </span>
         )
       })}
+
 
       {amidDatabase.map((item, key) => {
         return (
