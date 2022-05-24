@@ -25,10 +25,10 @@ const Navigation = () => {
 
       <ul>
         <li>
-          <Link to="/">خانه</Link>
+          <Link to="/" onClick={closeMenuHandler}>خانه</Link>
         </li>
         <li>
-          <Link to="/about-us">درباره ما</Link>
+          <Link to="/about-us" onClick={closeMenuHandler}>درباره ما</Link>
         </li>
       </ul>
     </nav>
