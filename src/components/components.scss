@@ -77,12 +77,28 @@ footer {
 .meaning-section {
     position: relative;
 
+    &__box{
+        transition: .5s ease;
+        animation: LeftToRight 1s;
+    }
+
+    @keyframes LeftToRight {
+        0%{
+            width: 0%;
+            opacity: 0;
+        }
+        100%{
+            width: auto;
+            opacity: 1;
+        }
+    }
+
     .database-title {
         font-family: "Vazir-Bold";
         margin: 2.5em 0 0.5em 0;
         position: relative;
         padding-right: 0.5em;
         width: 100%;
-        
+
     }
 }
