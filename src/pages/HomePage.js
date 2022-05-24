@@ -113,68 +113,81 @@ const HomePage = () => {
       </div>
 
 
-<section className='meaning-section'>
+      <section className='meaning-section'>
 
-      {meaning && meaning.length !== 0 ? <h3 className='database-title'>دهخدا</h3> : ''}
-      {meaning.map((item, key) => {
-        return (
-          <span key={key}>
-            {item.text}
-          </span>
-        )
-      })}
-
-
-      {amidDatabase && amidDatabase.length !== 0 ? <h3 className='database-title'>عمید</h3> : ''}
-      {amidDatabase.map((item, key) => {
-        return (
-         
-          <div key={key}>
-          <span>تلفظ {item.pron}</span>
-            <p>
-             {item.text}
-             </p>
-          </div>
-        )
-      })}
+        <div className='meaning-section__box'>
+          {meaning && meaning.length !== 0 ? <h3 className='database-title'>دهخدا</h3> : ''}
+          {meaning.map((item, key) => {
+            return (
+              <span key={key}>
+                {item.text}
+              </span>
+            )
+          })}
+        </div>
 
 
-      {moeinDatabase && moeinDatabase.length !== 0 ? <h3 className='database-title'>معین</h3> : ''}
-      {moeinDatabase.map((item, key) => {
-        return (
-          <div key={key}>
-            <p>
-             {item.text}
-             </p>
-          </div>
-        )
-      })}
+        <div className='meaning-section__box'>
+        {amidDatabase && amidDatabase.length !== 0 ? <h3 className='database-title'>عمید</h3> : ''}
+        {amidDatabase.map((item, key) => {
+          return (
 
-      {motaradefDatabase && motaradefDatabase.length !== 0 ? <h3 className='database-title'>واژگان مترادف و متضاد</h3> : ''}
-      {motaradefDatabase.map((item, key) => {
-        return (
-          <div key={key}>
-            <p>
-             {item.text}
-             </p>
-          </div>
-        )
-      })}
+            <div key={key}>
+              <span>تلفظ {item.pron}</span>
+              <p>
+                {item.text}
+              </p>
+            </div>
+          )
+        })}
+        </div>
 
 
-      {suggestions && suggestions.length !== 0 ? <h3 className='text-center'>واژگان مشابه</h3> : ''}
-      {suggestions.map((suggest, key) => {
-        return (
-          <div key={key}>
-            <span>
-             {suggest}, 
-             </span>
-          </div>
-        )
-      })}
+
+        <div className='meaning-section__box'>
+        {moeinDatabase && moeinDatabase.length !== 0 ? <h3 className='database-title'>معین</h3> : ''}
+        {moeinDatabase.map((item, key) => {
+          return (
+            <div key={key}>
+              <p>
+                {item.text}
+              </p>
+            </div>
+          )
+        })}
+        </div>
+
+
+        <div className='meaning-section__box'>
+        {motaradefDatabase && motaradefDatabase.length !== 0 ? <h3 className='database-title'>واژگان مترادف و متضاد</h3> : ''}
+        {motaradefDatabase.map((item, key) => {
+          return (
+            <div key={key}>
+              <p>
+                {item.text}
+              </p>
+            </div>
+          )
+        })}
+        </div>
+
+
+
+        <div className='meaning-section__box'>
+        {suggestions && suggestions.length !== 0 ? <h3 className='text-center'>واژگان مشابه</h3> : ''}
+        {suggestions.map((suggest, key) => {
+          return (
+            <div key={key}>
+              <span>
+                {suggest},
+              </span>
+            </div>
+          )
+        })}
+        </div>
       </section>
     </>
-    
+
   );
 }
 
