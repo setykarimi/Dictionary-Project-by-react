@@ -13,6 +13,7 @@ const HomePage = () => {
   const [moeinDatabase, setMoeinDatabase] = useState([])
   const [motaradefDatabase, setMotaradefDatabase] = useState([])
   const [isfahaniDatabase, setIsfahaniDatabase] = useState([])
+  const [showDatabases , setShowDatabases] = useState(false)
 
   const token = "68283.WF5AdpjT2PSP12ePMldnNyuByZJ6kdGXsuerEhjd"
 
@@ -102,19 +103,36 @@ const HomePage = () => {
       moeinDatabaseHandler()
       motaradefDatabaseHandler()
       suggestionsHandler()
+      showNewDatabases()
     }
+  }
+
+  const showNewDatabases = () => {
+    setShowDatabases(!showDatabases)
   }
 
   return (
     <>
+
+    <div className='new-databases' style={ showDatabases ? { display:'flex'} : {display : 'none'} }>
+        <span>
+          فرهنگستان
+        </span>
+        <span>سره</span>
+        <span>آزاد</span>
+        <span>نام</span>
+        <span>قرآن</span>
+        <span>علمی</span>
+        <span>قافیه</span>
+      </div>
       <div className='search_input'>
         <input placeholder='جستجو واژه مورد نظر' value={input} type="text" onChange={changeInputHandler} onKeyDown={getResultHandler} />
         <img src={Search} alt="search-icon" />
       </div>
 
+      
 
       <section className='meaning-section'>
-
         <div className='meaning-section__box'>
           {meaning && meaning.length !== 0 ? <h3 className='database-title'>دهخدا</h3> : ''}
           {meaning.map((item, key) => {
@@ -128,62 +146,61 @@ const HomePage = () => {
 
 
         <div className='meaning-section__box'>
-        {amidDatabase && amidDatabase.length !== 0 ? <h3 className='database-title'>عمید</h3> : ''}
-        {amidDatabase.map((item, key) => {
-          return (
+          {amidDatabase && amidDatabase.length !== 0 ? <h3 className='database-title'>عمید</h3> : ''}
+          {amidDatabase.map((item, key) => {
+            return (
 
-            <div key={key}>
-              <span>تلفظ {item.pron}</span>
-              <p>
-                {item.text}
-              </p>
-            </div>
-          )
-        })}
+              <div key={key}>
+                <span>تلفظ {item.pron}</span>
+                <p>
+                  {item.text}
+                </p>
+              </div>
+            )
+          })}
+        </div>
+
+
+        <div className='meaning-section__box'>
+          {moeinDatabase && moeinDatabase.length !== 0 ? <h3 className='database-title'>معین</h3> : ''}
+          {moeinDatabase.map((item, key) => {
+            return (
+              <div key={key}>
+                <p>
+                  {item.text}
+                </p>
+              </div>
+            )
+          })}
+        </div>
+
+
+        <div className='meaning-section__box'>
+          {motaradefDatabase && motaradefDatabase.length !== 0 ? <h3 className='database-title'>واژگان مترادف و متضاد</h3> : ''}
+          {motaradefDatabase.map((item, key) => {
+            return (
+              <div key={key}>
+                <p>
+                  {item.text}
+                </p>
+              </div>
+            )
+          })}
         </div>
 
 
 
         <div className='meaning-section__box'>
-        {moeinDatabase && moeinDatabase.length !== 0 ? <h3 className='database-title'>معین</h3> : ''}
-        {moeinDatabase.map((item, key) => {
-          return (
-            <div key={key}>
-              <p>
-                {item.text}
-              </p>
-            </div>
-          )
-        })}
-        </div>
-
-
-        <div className='meaning-section__box'>
-        {motaradefDatabase && motaradefDatabase.length !== 0 ? <h3 className='database-title'>واژگان مترادف و متضاد</h3> : ''}
-        {motaradefDatabase.map((item, key) => {
-          return (
-            <div key={key}>
-              <p>
-                {item.text}
-              </p>
-            </div>
-          )
-        })}
-        </div>
-
-
-
-        <div className='meaning-section__box'>
-        {suggestions && suggestions.length !== 0 ? <h3 className='text-center'>واژگان مشابه</h3> : ''}
-        {suggestions.map((suggest, key) => {
-          return (
-            <div key={key}>
-              <span>
-                {suggest},
-              </span>
-            </div>
-          )
-        })}
+          {suggestions && suggestions.length !== 0 ? <h3 className='text-center'>واژگان مشابه</h3> : ''}
+          {suggestions.map((suggest, key) => {
+            return (
+              <div key={key}>
+                <span>
+                  {suggest},
+                </span>
+              </div>
+            )
+          })}
         </div>
       </section>
     </>
