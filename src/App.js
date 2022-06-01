@@ -3,7 +3,6 @@ import HomePage from './pages/HomePage'
 import AboutUs from './pages/AboutUs'
 import Layout from './Layout/Layout'
 import NotFound from './pages/NotFound'
-import './components/components.scss'
 
 function App() {
   return (
