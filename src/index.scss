@@ -36,18 +36,5 @@
 
 body{
   direction: rtl;
-  color: #fff;
-  // background-color: #1B7979;
-  background:  #1B7979;
-
 }
 
-a{
-  text-decoration: none;
-  transition: .5s ease;
-  color: #fff;
-  &:hover{
-    padding-right: 1em;
-    font-family: 'Vazir-Black';
-  }
-}
