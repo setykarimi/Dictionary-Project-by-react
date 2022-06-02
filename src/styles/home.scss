@@ -1,0 +1,115 @@
+.meaning-section {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    justify-content: space-between;
+
+    @media(max-width:600px){
+        grid-template-columns: auto;
+      }
+    
+    &__box {
+      background: #1b1b1f;
+      margin: 1em 0;
+      border-radius: 0.7em;
+      transition: .5s ease;
+      height: auto;
+      @media(max-width:600px){
+        height: max-content;
+      }
+      
+
+      &-title {
+        display: flex;
+        align-items: center;
+        padding: 1em 1.5em 0 1.5em;
+        
+        span {
+          font-size: 0.8em;
+        }
+
+        h3 {
+          font-family: "Lalezar";
+          margin-right: 1em;
+          color: #fff;
+          font-size: 1.5em;
+        }
+      }
+
+      p {
+        font-size: 0.9em;
+        text-align: justify;
+        padding: 1.5em;
+        animation: showBox .5s ease;
+        transition: .5s ease;
+        @keyframes showBox {
+          from{
+            opacity: 0;
+            transform: translateX(100px);
+          }
+          to{
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      }
+
+      .pronunciation{
+        color: #fff;
+        padding-right: 1.5em;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .search-term {
+    span {
+      font-family: "Lalezar";
+      color: #fff;
+      font-size: 1.1em;
+      margin-left: 0.5em;
+    }
+
+    input {
+      background: transparent;
+      border: transparent;
+      font-family: "Lalezar";
+      width: 15em;
+      color: #346aff;
+      font-size: 1.5em;
+      &::placeholder {
+        color: #727272;
+        font-family: "Vazir-Thin";
+        font-size: 0.6em !important;
+      }
+    }
+  }
+
+  .similar-words {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    @media(max-width: 992px){
+      justify-content: space-between;
+    }
+    span {
+      display: block;
+      margin: 1em 0 0 1em;
+      background: #346aff;
+      color: #fff;
+      border-radius: 2em;
+      padding: 0.2em 1em;
+      animation: showBox .5s ease;
+        transition: .5s ease;
+        @keyframes showBox {
+          from{
+            opacity: 0;
+            transform: scale(0);
+          }
+          to{
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+      
+    }
+  }
