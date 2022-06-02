@@ -1,0 +1,74 @@
+@font-face {
+    font-family: "Lalezar";
+    src: url(../../fonts/Lalezar-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Vazir-Thin";
+    src: url(../../fonts/Vazir-Thin-FD.ttf);
+}
+
+.header {
+    padding: 2em 1.5em;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #26262B;
+    @media(max-width:600px){
+        padding: 5em 1em 2em 1em;
+    }
+    &-logo {
+        font-family: "Lalezar";
+        color: #fff;
+        font-size: 2em;
+        @media(max-width:600px){
+            position: absolute;
+            top: .5em;
+        }
+    }
+
+    &-search_input {
+        margin-right: 3em;
+        border: 1px solid #26262B;
+        border-radius: 2em;
+        padding: .5em 1em;
+        display: flex;
+        align-items: center;
+        max-width: 18em;
+        width: 100%;
+        transition: .2s ease;
+        @media(max-width:600px){
+            margin-right: 0;
+        }
+
+        &:focus-within{
+            // border: 1px solid #346AFF;
+            box-shadow: 0px 0px 0px 3px rgba(52, 106, 255, .2);
+        }
+        input {
+            font-family: "Vazir-Thin";
+            background: transparent;
+            border: none;
+            outline: none;
+            margin-right: .5em;
+            color: #fff;
+            width: 100%;
+            position: relative;
+            &::placeholder{
+                color: #484848;
+                font-size: 1.1em;
+            }
+        }
+    }
+
+    .setting{
+        border:1px solid #26262B;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.5em;
+        height: 2.5em;
+        margin-right: auto;
+    }
+}
+
