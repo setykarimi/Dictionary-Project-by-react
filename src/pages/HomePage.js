@@ -5,10 +5,12 @@ import Voice from '../img/voice.svg';
 import '../components/Header/header.scss'
 import Header from '../components/Header/Header';
 import Sidebar from '../components/Sidebar/Sidebar';
+import DatabaseBox from '../components/Database/Database';
+import '../styles/home.scss'
 
 const HomePage = () => {
   const [input, setInput] = useState('');
-  const [meaning, setMeaning] = useState([])
+  const [dehkhoda, setDehkhodaDatabase] = useState([])
   const [database, setDatabase] = useState('dehkhoda');
   const [suggestions, setSuggestions] = useState([]);
   const databases =
@@ -25,17 +27,16 @@ const HomePage = () => {
     axios
       .get(`http://api.vajehyab.com/v3/search?token=${token}&q=${input}&type=exact&filter=${database}`)
       .then((res) => {
-        setMeaning(res.data.data.results)
+        setDehkhodaDatabase(res.data.data.results)
       })
       .catch((err) => console.log(err))
   }
-
 
   useEffect(() => {
     axios
       .get(`http://api.vajehyab.com/v3/search?token=${token}&q=${input}&type=exact&filter=${database}`)
       .then((res) => {
-        setMeaning(res.data.data.results)
+        setDehkhodaDatabase(res.data.data.results)
       })
       .catch((err) => console.log(err))
   }, [database])
@@ -90,7 +91,6 @@ const HomePage = () => {
       .catch((err) => console.log(err))
   }
 
-
   const changeInputHandler = (e) => {
     setInput(e.target.value)
 
@@ -115,6 +115,17 @@ const HomePage = () => {
     setShowDatabases(!showDatabases)
   }
 
+  const similarWordHandler = (e) => {
+    console.log(e.target.innerText);
+    setInput(e.target.innerText)
+    setMeaningHandler()
+    amidDatabaseHandler()
+    moeinDatabaseHandler()
+    motaradefDatabaseHandler()
+    suggestionsHandler()
+    showNewDatabases()
+  }
+
   return (
     <>
 
@@ -134,77 +145,26 @@ const HomePage = () => {
 
         <section className='content'>
 
-        <div className='similar-words'>
-              {suggestions && suggestions.length !== 0 ?<div className=''><h3 className='text-center'>واژگان مشابه</h3> </div>: ''}
-              {suggestions.map((suggest, key) => {
-                return (
-                  
-                    <span key={key}>
-                      {suggest},  
-                    </span>
-                  
-                )
-              })}
-            </div>
+          <div className='search-term'>
+            <span>واژه جستجو شده: </span>
+            <input placeholder='واژه مورد نظر خود را جستجو کنید' value={input} disabled />
+          </div>
+
+          <div className='similar-words'>
+            {suggestions.map((suggest, key) => {
+              return (
+                <span key={key} onClick={similarWordHandler}>
+                  {suggest}
+                </span>
+              )
+            })}
+          </div>
+
           <div className='meaning-section'>
-
-        
-
-            <div className='meaning-section__box'>
-              {meaning && meaning.length !== 0 ?<div className='meaning-section__box-title'><span>لغت نامه: </span> <h3 className='database-title'>دهخدا</h3></div> : ''}
-              {meaning.map((item, key) => {
-                return (
-                  <p key={key}>
-                    {item.text}
-                  </p>
-                )
-              })}
-            </div>
-
-
-            <div className='meaning-section__box'>
-              {amidDatabase && amidDatabase.length !== 0 ?<div className='meaning-section__box-title'><span>لغت نامه: </span>  <h3 className='database-title'>عمید</h3></div> : ''}
-              {amidDatabase.map((item, key) => {
-                return (
-
-                  <div key={key}>
-                    <span>تلفظ {item.pron}</span>
-                    <p>
-                      {item.text}
-                    </p>
-                  </div>
-                )
-              })}
-            </div>
-
-            <div className='meaning-section__box'>
-              {moeinDatabase && moeinDatabase.length !== 0 ? <div className='meaning-section__box-title'><span>لغت نامه: </span> <h3 className='database-title'>معین</h3> </div>: ''}
-              {moeinDatabase.map((item, key) => {
-                return (
-                  <div key={key}>
-                    <p>
-                      {item.text}
-                    </p>
-                  </div>
-                )
-              })}
-            </div>
-
-            <div className='meaning-section__box'>
-              {motaradefDatabase && motaradefDatabase.length !== 0 ? <div className='meaning-section__box-title'><span>لغت نامه: </span> <h3 className='database-title'>واژگان مترادف و متضاد</h3></div> : ''}
-              {motaradefDatabase.map((item, key) => {
-                return (
-                  <div key={key}>
-                    <p>
-                      {item.text}
-                    </p>
-                  </div>
-                )
-              })}
-            </div>
-
-           
-
+            <DatabaseBox meaning={dehkhoda} databseTitle='دهخدا' />
+            <DatabaseBox meaning={amidDatabase} databseTitle='عمید' />
+            <DatabaseBox meaning={moeinDatabase} databseTitle='معین' />
+            <DatabaseBox meaning={motaradefDatabase} databseTitle='مترادف و متضاد' />
           </div>
         </section>
       </div>
