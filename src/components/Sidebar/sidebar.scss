@@ -8,6 +8,11 @@
     height: 100vh;
     padding: 1em;
     font-family: "Lalezar";
+    @media(max-width:992px){
+       transform: translatex(500px);
+       position: absolute;
+       transition: .5s ease;
+    }
     ul {
         list-style-type: none;
         li {
@@ -33,8 +38,58 @@
         }
     }
 
+    &.activeSidebar{
+        @media(max-width:992px){
+            transform: translateX(0);
+            position: absolute;
+            background: #111116;
+            width: 15em;
+            animation: sidebar .5s ease;
+        }
+    }
+
+    
     &__active-menu {
         background: linear-gradient(270.13deg, #346aff 2.42%, #2265ff 98.98%);
         
     }
 }
+
+
+.menu{
+    border: 1px solid #26262b;
+    width: 2.5em;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 2em;
+    left: 1.5em;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    display: none;
+    @media(max-width: 992px){
+        display: block;
+    }
+    button{
+        all: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@keyframes sidebar {
+    from{
+        transform: translateX(500px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
