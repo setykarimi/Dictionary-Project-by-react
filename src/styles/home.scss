@@ -62,6 +62,9 @@
   }
 
   .search-term {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
     span {
       font-family: "Lalezar";
       color: #fff;
