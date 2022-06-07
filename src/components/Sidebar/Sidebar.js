@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Home from '../../img/home.svg';
 import AboutUs from '../../img/about-us.svg';
@@ -10,14 +10,8 @@ import { useLocation } from "react-router-dom"
 const Sidebar = () => {
 
   const sampleLocation = useLocation();
-const currentUrl = sampleLocation.pathname;
-  const [showSidebar , setShowSidebar] = useState(true);
-
-  
-  
-  
-
-
+  const currentUrl = sampleLocation.pathname;
+  const [showSidebar, setShowSidebar] = useState(true);
 
   return (
     <>
@@ -30,14 +24,14 @@ const currentUrl = sampleLocation.pathname;
             </Link>
           </li>
           <li>
-            <Link to="/about-us"  className={currentUrl == '/about-us' ? 'sidebar__active-menu' : ''}>
+            <Link to="/about-us" className={currentUrl == '/about-us' ? 'sidebar__active-menu' : ''}>
               <img src={AboutUs} alt="about-us" />
-              <span>درباره ما</span>
+              <span>درباره من</span>
             </Link>
           </li>
         </ul>
       </div>
-      <HamburgerMenu onClickMenu={()=> setShowSidebar(!showSidebar)}/>
+      <HamburgerMenu onClickMenu={() => setShowSidebar(!showSidebar)} />
 
     </>
   )
