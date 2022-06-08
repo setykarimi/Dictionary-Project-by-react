@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Dictionary-Project-by-react/static/css/main.4d40e2c0.css",
-    "main.js": "/Dictionary-Project-by-react/static/js/main.e36e7cbf.js",
+    "main.js": "/Dictionary-Project-by-react/static/js/main.865fc60b.js",
     "static/media/Lalezar-Regular.ttf": "/Dictionary-Project-by-react/static/media/Lalezar-Regular.241ca811c53de4ed36a4.ttf",
     "static/media/Vazir-Light-FD.ttf": "/Dictionary-Project-by-react/static/media/Vazir-Light-FD.d90feab7f50d9fe01f5a.ttf",
     "static/media/Vazir-Thin-FD.ttf": "/Dictionary-Project-by-react/static/media/Vazir-Thin-FD.5d433e8d284b6cfb7d55.ttf",
@@ -12,10 +12,10 @@
     "static/media/hamburger-menu.svg": "/Dictionary-Project-by-react/static/media/hamburger-menu.9caa2e529b91a85d9ab5f09aad823816.svg",
     "static/media/search-icon.svg": "/Dictionary-Project-by-react/static/media/search-icon.e42ad27f84a09d6188ad169d1f5ff545.svg",
     "main.4d40e2c0.css.map": "/Dictionary-Project-by-react/static/css/main.4d40e2c0.css.map",
-    "main.e36e7cbf.js.map": "/Dictionary-Project-by-react/static/js/main.e36e7cbf.js.map"
+    "main.865fc60b.js.map": "/Dictionary-Project-by-react/static/js/main.865fc60b.js.map"
   },
   "entrypoints": [
     "static/css/main.4d40e2c0.css",
-    "static/js/main.e36e7cbf.js"
+    "static/js/main.865fc60b.js"
   ]
 }
