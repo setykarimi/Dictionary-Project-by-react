@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/Dictionary-Project-by-react/static/css/main.4d40e2c0.css",
-    "main.js": "/Dictionary-Project-by-react/static/js/main.19c8a28e.js",
-    "static/media/Lalezar-Regular.ttf": "/Dictionary-Project-by-react/static/media/Lalezar-Regular.241ca811c53de4ed36a4.ttf",
-    "static/media/Vazir-Light-FD.ttf": "/Dictionary-Project-by-react/static/media/Vazir-Light-FD.d90feab7f50d9fe01f5a.ttf",
-    "static/media/Vazir-Thin-FD.ttf": "/Dictionary-Project-by-react/static/media/Vazir-Thin-FD.5d433e8d284b6cfb7d55.ttf",
-    "static/media/voice.svg": "/Dictionary-Project-by-react/static/media/voice.f0977f97b286e7f00132b76471ca2b02.svg",
-    "static/media/about-us.svg": "/Dictionary-Project-by-react/static/media/about-us.46663dc45a9a1007ebebd7dcfba319fe.svg",
-    "index.html": "/Dictionary-Project-by-react/index.html",
-    "static/media/home.svg": "/Dictionary-Project-by-react/static/media/home.7f7601bcc6c64a7850e162b3634d88af.svg",
-    "static/media/hamburger-menu.svg": "/Dictionary-Project-by-react/static/media/hamburger-menu.9caa2e529b91a85d9ab5f09aad823816.svg",
-    "static/media/search-icon.svg": "/Dictionary-Project-by-react/static/media/search-icon.e42ad27f84a09d6188ad169d1f5ff545.svg",
-    "main.4d40e2c0.css.map": "/Dictionary-Project-by-react/static/css/main.4d40e2c0.css.map",
-    "main.19c8a28e.js.map": "/Dictionary-Project-by-react/static/js/main.19c8a28e.js.map"
+    "main.css": "/static/css/main.17a20a15.css",
+    "main.js": "/static/js/main.12898d3c.js",
+    "static/media/Lalezar-Regular.ttf": "/static/media/Lalezar-Regular.241ca811c53de4ed36a4.ttf",
+    "static/media/Vazir-Light-FD.ttf": "/static/media/Vazir-Light-FD.d90feab7f50d9fe01f5a.ttf",
+    "static/media/Vazir-Thin-FD.ttf": "/static/media/Vazir-Thin-FD.5d433e8d284b6cfb7d55.ttf",
+    "static/media/voice.svg": "/static/media/voice.f0977f97b286e7f00132b76471ca2b02.svg",
+    "static/media/about-us.svg": "/static/media/about-us.46663dc45a9a1007ebebd7dcfba319fe.svg",
+    "static/media/home.svg": "/static/media/home.7f7601bcc6c64a7850e162b3634d88af.svg",
+    "index.html": "/index.html",
+    "static/media/hamburger-menu.svg": "/static/media/hamburger-menu.9caa2e529b91a85d9ab5f09aad823816.svg",
+    "static/media/search-icon.svg": "/static/media/search-icon.e42ad27f84a09d6188ad169d1f5ff545.svg",
+    "main.17a20a15.css.map": "/static/css/main.17a20a15.css.map",
+    "main.12898d3c.js.map": "/static/js/main.12898d3c.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d40e2c0.css",
-    "static/js/main.19c8a28e.js"
+    "static/css/main.17a20a15.css",
+    "static/js/main.12898d3c.js"
   ]
 }
