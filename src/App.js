@@ -9,7 +9,7 @@ function App() {
     <>
       <Layout>
         <Routes>
-          <Route path='/Dictionary-Project-by-react' exact={true} element={<HomePage />} />
+          <Route path='/' exact={true} element={<HomePage />} />
           <Route path='/about-us' element={<AboutUs />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
