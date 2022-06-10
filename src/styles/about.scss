@@ -1,0 +1,35 @@
+.about-section{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    >div >p{
+        text-align: justify;
+        line-height: 2.5em;
+    }
+    .box{
+        background-color: #1b1b1f;
+        padding: 1em;
+        width: 70%;
+        margin: auto;
+        border-radius: .5em;
+        &__profile{
+            padding: .5em;
+            background: linear-gradient(270.13deg, #346aff 2.42%, #2265ff 98.98%);
+            width: 5em;
+            height: 5em;
+            border-radius: 50%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 5em;
+                height: 5em;
+                border-radius: 50%;
+                box-shadow: 0 0 10px 2px rgb(88, 88, 88);
+            }
+        }
+    }
+}
