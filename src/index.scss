@@ -24,6 +24,7 @@ body {
   color: #999999;
   font-family: "Vazir-Light";
   overflow-y: hidden;
+  overflow: hidden;
   @media (max-width: 600px) {
     font-size: 13px;
   }
@@ -67,6 +68,48 @@ a {
   &::-webkit-scrollbar-thumb:hover {
     background: #1b58ff; 
   }
+}
 
+.not-found{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 92vh;
+  animation: changeBg 3s ease-in-out infinite;
+  overflow: hidden;
+  p{
+    font-family: 'Lalezar';
+    font-size: 2em;
+    animation: scaleUp 3s ease-in-out infinite;
+  }
+}
+
+@keyframes scaleUp {
+  0%{
+    transform: scale(1);
+  }
   
+  50%{
+    transform: scale(1.1);
+  }
+
+  100%{
+    transform: scale(1);
+  }
+}
+
+
+@keyframes changeBg {
+  0%{
+    background: #111116;
+  }
+  
+  50%{
+    color: #111116;
+    background: #fff;
+  }
+
+  100%{
+    background: #111116;
+  }
 }
