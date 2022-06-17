@@ -8,6 +8,7 @@
     height: 100vh;
     padding: 1em;
     font-family: "Lalezar";
+    z-index: 1;
     @media(max-width:992px){
        transform: translatex(500px);
        position: absolute;
