@@ -25,20 +25,20 @@ const AboutUs = () => {
                         <div>
                             <div className="box">
                                 <div className="box__profile">
-                                    <img src={Image} />
+                                    <img src={Image} alt="profile"/>
                                 </div>
 
                                 <div className="social-medias">
                                     <a className="media" href="https://www.instagram.com/setykarimi/">
-                                        <div className="media__icon"><img src={Instagram}/></div>
+                                        <div className="media__icon"><img src={Instagram} alt="instagram"/></div>
                                         <div className="media__address">setykarimi</div>
                                     </a>
                                     <a className="media" href="https://www.linkedin.com/in/setayesh-karimi-1a5669179/">
-                                        <div className="media__icon"><img src={Linkedin}/></div>
+                                        <div className="media__icon"><img src={Linkedin} alt="likedin"/></div>
                                         <div className="media__address">setykarimi</div>
                                     </a>
                                     <a className="media" href="https://wa.me/09190979722">
-                                        <div className="media__icon"><img src={Whatsapp}/></div>
+                                        <div className="media__icon"><img src={Whatsapp} alt="whatsapp"/></div>
                                         <div className="media__address">+98 9190979722</div>
                                     </a>
                                 </div>
