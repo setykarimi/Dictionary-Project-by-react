@@ -1,21 +1,25 @@
 {
   "files": {
-    "main.css": "/Dictionary-Project-by-react/static/css/main.4d40e2c0.css",
-    "main.js": "/Dictionary-Project-by-react/static/js/main.865fc60b.js",
+    "main.css": "/Dictionary-Project-by-react/static/css/main.06c5eba8.css",
+    "main.js": "/Dictionary-Project-by-react/static/js/main.0a2dc7b5.js",
     "static/media/Lalezar-Regular.ttf": "/Dictionary-Project-by-react/static/media/Lalezar-Regular.241ca811c53de4ed36a4.ttf",
+    "static/media/sety.jpg": "/Dictionary-Project-by-react/static/media/sety.015148d8f9d7233fd390.jpg",
     "static/media/Vazir-Light-FD.ttf": "/Dictionary-Project-by-react/static/media/Vazir-Light-FD.d90feab7f50d9fe01f5a.ttf",
     "static/media/Vazir-Thin-FD.ttf": "/Dictionary-Project-by-react/static/media/Vazir-Thin-FD.5d433e8d284b6cfb7d55.ttf",
+    "static/media/instagram.svg": "/Dictionary-Project-by-react/static/media/instagram.24caf82a854b055667dfa79b7edffd37.svg",
+    "static/media/whatsapp.svg": "/Dictionary-Project-by-react/static/media/whatsapp.31530b4351f6adaa3a8774aac08a000b.svg",
     "static/media/voice.svg": "/Dictionary-Project-by-react/static/media/voice.f0977f97b286e7f00132b76471ca2b02.svg",
     "static/media/about-us.svg": "/Dictionary-Project-by-react/static/media/about-us.46663dc45a9a1007ebebd7dcfba319fe.svg",
     "index.html": "/Dictionary-Project-by-react/index.html",
     "static/media/home.svg": "/Dictionary-Project-by-react/static/media/home.7f7601bcc6c64a7850e162b3634d88af.svg",
+    "static/media/linkedin.svg": "/Dictionary-Project-by-react/static/media/linkedin.2df5d9d8f0b0ed88c415bb3083a1e089.svg",
     "static/media/hamburger-menu.svg": "/Dictionary-Project-by-react/static/media/hamburger-menu.9caa2e529b91a85d9ab5f09aad823816.svg",
     "static/media/search-icon.svg": "/Dictionary-Project-by-react/static/media/search-icon.e42ad27f84a09d6188ad169d1f5ff545.svg",
-    "main.4d40e2c0.css.map": "/Dictionary-Project-by-react/static/css/main.4d40e2c0.css.map",
-    "main.865fc60b.js.map": "/Dictionary-Project-by-react/static/js/main.865fc60b.js.map"
+    "main.06c5eba8.css.map": "/Dictionary-Project-by-react/static/css/main.06c5eba8.css.map",
+    "main.0a2dc7b5.js.map": "/Dictionary-Project-by-react/static/js/main.0a2dc7b5.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d40e2c0.css",
-    "static/js/main.865fc60b.js"
+    "static/css/main.06c5eba8.css",
+    "static/js/main.0a2dc7b5.js"
   ]
 }
