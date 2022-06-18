@@ -18,7 +18,7 @@ const Sidebar = () => {
       <div className={'sidebar ' + (showSidebar ? 'activeSidebar' : '')}>
         <ul>
           <li >
-            <Link to="/" className={currentUrl == '/' ? 'sidebar__active-menu' : ''}>
+            <Link to="/Dictionary-Project-by-react/" className={currentUrl == '/Dictionary-Project-by-react/' ||  currentUrl == '/Dictionary-Project-by-react'? 'sidebar__active-menu' : ''}>
               <img src={Home} alt='home' />
               <span>خانه</span>
             </Link>
