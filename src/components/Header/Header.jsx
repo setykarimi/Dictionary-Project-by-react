@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom';
 
 const Header = ({ input, changeInputHandler, getResultHandler }) => {
     const { pathname } = useLocation();
-    console.log(pathname);
     return (
         <div className="header">
             <div className="header-logo">
