@@ -1,41 +1,38 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import './sidebar.scss';
 import Home from '../../img/home.svg';
 import AboutUs from '../../img/about-us.svg';
-import './sidebar.scss';
-import { useLocation } from "react-router-dom";
 import HamburgerMenuImg from '../../img/hamburger-menu.svg'
 
 
 
-const Sidebar = () => {
 
-  const sampleLocation = useLocation();
-  const currentUrl = sampleLocation.pathname;
+const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState("");
 
   return (
     <>
-      <div className={`sidebar  ${showSidebar === true ? 'activeSidebar' : ''}`}>
+      <div className={`sidebar ${showSidebar === true ? 'activeSidebar' : ''}`}>
         <ul>
           <li>
-            <Link to="/" className={currentUrl == '/' ? 'sidebar__active-menu' : ''}>
+            <NavLink to="/" end className={navData => navData.isActive && 'sidebar__active-menu'}>
               <img src={Home} alt='home' />
               <span>خانه</span>
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/about-us" className={currentUrl == '/about-us' ? 'sidebar__active-menu' : ''}>
+            <NavLink to="/about-us" className={navData => navData.isActive && 'sidebar__active-menu'}>
               <img src={AboutUs} alt="about-us" />
               <span>درباره من</span>
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
 
       <div className='menu'>
         <button onClick={() => setShowSidebar(!showSidebar)}>
-          <img src={HamburgerMenuImg} alt="setting" />
+          <img src={HamburgerMenuImg} alt="menu" />
         </button>
       </div>
 
