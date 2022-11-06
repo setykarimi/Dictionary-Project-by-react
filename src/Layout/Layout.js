@@ -1,13 +1,10 @@
+import Header from "../components/Header/Header"
 
 
-const Layout = ({ children }) => {
+const Layout = ({ children, input, changeInputHandler, getResultHandler }) => {
     return (
         <>
-            {/* <Header /> */}
-            <div>
             {children}
-            </div>
-            {/* <Footer /> */}
         </>
     )
 }
