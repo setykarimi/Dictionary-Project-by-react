@@ -4,7 +4,6 @@ import Header from '../components/Header/Header';
 import Sidebar from '../components/Sidebar/Sidebar';
 import DatabaseBox from '../components/Database/Database';
 import '../styles/home.scss';
-import { SearchService } from '../services/searchService';
 import { http } from '../services/httpService';
 
 const HomePage = () => {
@@ -13,10 +12,6 @@ const HomePage = () => {
   const [suggestions, setSuggestions] = useState([]);
   const databases =
     { dehkhoda: "dehkhoda", amid: "amid", moein: "moein", motaradef: "motaradef", isfahani: "isfahani", en2fa: "en2fa" };
-  const [amidDatabase, setAmidDatabase] = useState([]);
-  const [moeinDatabase, setMoeinDatabase] = useState([]);
-  const [motaradefDatabase, setMotaradefDatabase] = useState([]);
-  const [englishToPersian, setEnglishToPersian] = useState([]);
   const [showDatabases, setShowDatabases] = useState(false);
   const [resultData, setResultData] = useState({
     dehkhoda: [],
