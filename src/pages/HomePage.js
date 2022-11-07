@@ -20,6 +20,13 @@ const HomePage = () => {
   const [motaradefDatabase, setMotaradefDatabase] = useState([]);
   const [englishToPersian, setEnglishToPersian] = useState([]);
   const [showDatabases, setShowDatabases] = useState(false);
+  const [resultData, setResultData] = useState({
+    dehkhoda: [],
+    amid: [],
+    moein: [],
+    motaradef: [],
+    english: []
+  })
 
   const token = "68284.t5Gzego6SX28dzh71Un3aUZMAM2a0GIY7pkyzNEo";
 
@@ -28,7 +35,7 @@ const HomePage = () => {
     http
       .get(`/search?token=${token}&q=${input}&type=exact&filter=${databases.dehkhoda}`)
       .then((res) => {
-        setDehkhodaDatabase(res.data.data.results)
+        setResultData({...resultData, dehkhoda: res.data.data.results})
       })
       .catch((err) => console.log(err))
   }
@@ -148,7 +155,7 @@ const HomePage = () => {
           </div>
 
           <div className='meaning-section'>
-            <DatabaseBox meaning={dehkhoda} databseTitle='دهخدا' />
+            <DatabaseBox meaning={resultData.dehkhoda} databseTitle='دهخدا' />
             <DatabaseBox meaning={amidDatabase} databseTitle='عمید' />
             <DatabaseBox meaning={moeinDatabase} databseTitle='معین' />
             <DatabaseBox meaning={motaradefDatabase} databseTitle='مترادف و متضاد' />
