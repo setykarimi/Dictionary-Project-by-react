@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import '../components/Header/header.scss'
 import Header from '../components/Header/Header';
 import Sidebar from '../components/Sidebar/Sidebar';
@@ -10,7 +9,6 @@ import { http } from '../services/httpService';
 
 const HomePage = () => {
   const [input, setInput] = useState('');
-  const [dehkhoda, setDehkhodaDatabase] = useState([])
   const [database, setDatabase] = useState('dehkhoda');
   const [suggestions, setSuggestions] = useState([]);
   const databases =
@@ -26,71 +24,70 @@ const HomePage = () => {
     moein: [],
     motaradef: [],
     english: []
-  })
+  });
 
   const token = "68284.t5Gzego6SX28dzh71Un3aUZMAM2a0GIY7pkyzNEo";
 
-  const dehkhodaDatabaseHandler = () => {
-
+  useEffect(() => {
     http
-      .get(`/search?token=${token}&q=${input}&type=exact&filter=${databases.dehkhoda}`)
+      .get(`http://api.vajehyab.com/v3/search?token=${token}&q=${input}&type=exact&filter=${database}`)
       .then((res) => {
-        setResultData({...resultData, dehkhoda: res.data.data.results})
+        dehkhodaDatabaseHandler();
+        amidDatabaseHandler()
+        moeinDatabaseHandler()
+        motaradefDatabaseHandler();
+        englishToPersianHandler()
+        // suggestionsHandler()
+        // showNewDatabases()
+      })
+      .catch((err) => console.log(err));
+  }, [input])
+
+
+  const dehkhodaDatabaseHandler = () => {
+    http
+      .get(`/search?token=${token}&q=${input}&type=exact&filter=${database}`)
+      .then((res) => {
+        setResultData({...resultData, dehkhoda: res.data.data.results});
       })
       .catch((err) => console.log(err))
   }
 
-
-  useEffect(() => {
-    axios
-      .get(`http://api.vajehyab.com/v3/search?token=${token}&q=${input}&type=exact&filter=${database}`)
+  const motaradefDatabaseHandler = () => {
+    http
+      .get(`/search?token=${token}&q=${input}&type=exact&filter=${databases.motaradef}`)
       .then((res) => {
-        dehkhodaDatabaseHandler()
-        // amidDatabaseHandler()
-        // moeinDatabaseHandler()
-        // motaradefDatabaseHandler()
-        // suggestionsHandler()
-        // showNewDatabases()
-        // englishToPersianHandler()
+        setResultData({...resultData, motaradef: res.data.data.results});
+      })
+      .catch((err) => console.log(err));
+  }
+
+  const amidDatabaseHandler = () => {
+    http
+      .get(`/search?token=${token}&q=${input}&type=exact&filter=${databases.amid}`)
+      .then((res) => {
+        setResultData({...resultData, amid: res.data.data.results});
       })
       .catch((err) => console.log(err))
-  }, [input])
+  }
 
-  // const amidDatabaseHandler = () => {
-  //   axios
-  //     .get(`http://api.vajehyab.com/v3/search?token=${token}&q=${input}&type=exact&filter=${databases.amid}`)
-  //     .then((res) => {
-  //       setAmidDatabase(res.data.data.results)
-  //     })
-  //     .catch((err) => console.log(err))
-  // }
+  const moeinDatabaseHandler = () => {
+    http
+      .get(`/search?token=${token}&q=${input}&type=exact&filter=${databases.moein}`)
+      .then((res) => {
+        setResultData({...resultData, moein: res.data.data.results})
+      })
+      .catch((err) => console.log(err))
+  }
 
-  // const moeinDatabaseHandler = () => {
-  //   axios
-  //     .get(`http://api.vajehyab.com/v3/search?token=${token}&q=${input}&type=exact&filter=${databases.moein}`)
-  //     .then((res) => {
-  //       setMoeinDatabase(res.data.data.results)
-  //     })
-  //     .catch((err) => console.log(err))
-  // }
-
-  // const motaradefDatabaseHandler = () => {
-  //   axios
-  //     .get(`http://api.vajehyab.com/v3/search?token=${token}&q=${input}&type=exact&filter=${databases.motaradef}`)
-  //     .then((res) => {
-  //       setMotaradefDatabase(res.data.data.results)
-  //     })
-  //     .catch((err) => console.log(err))
-  // }
-
-  // const englishToPersianHandler = () => {
-  //   axios
-  //     .get(`http://api.vajehyab.com/v3/search?token=${token}&q=${input}&type=exact&filter=${databases.en2fa}`)
-  //     .then((res) => {
-  //       setEnglishToPersian(res.data.data.results)
-  //     })
-  //     .catch((err) => console.log(err))
-  // }
+  const englishToPersianHandler = () => {
+    http
+      .get(`/search?token=${token}&q=${input}&type=exact&filter=${databases.en2fa}`)
+      .then((res) => {
+        setResultData({...resultData, english: res.data.data.results})
+      })
+      .catch((err) => console.log(err))
+  }
 
   // const suggestionsHandler = () => {
   //   axios
@@ -100,6 +97,8 @@ const HomePage = () => {
   //     })
   //     .catch((err) => { })
   // }
+
+
 
   const changeInputHandler = (e) => {
     setInput(e.target.value)
@@ -156,10 +155,10 @@ const HomePage = () => {
 
           <div className='meaning-section'>
             <DatabaseBox meaning={resultData.dehkhoda} databseTitle='دهخدا' />
-            <DatabaseBox meaning={amidDatabase} databseTitle='عمید' />
-            <DatabaseBox meaning={moeinDatabase} databseTitle='معین' />
-            <DatabaseBox meaning={motaradefDatabase} databseTitle='مترادف و متضاد' />
-            <DatabaseBox meaning={englishToPersian} databseTitle='انگلیسی به فارسی' />
+            <DatabaseBox meaning={resultData.motaradef} databseTitle='مترادف و متضاد' />
+            <DatabaseBox meaning={resultData.amid} databseTitle='عمید' />
+            <DatabaseBox meaning={resultData.moein} databseTitle='معین' />
+            <DatabaseBox meaning={resultData.english} databseTitle='انگلیسی به فارسی' />
           </div>
         </section>
       </div>
