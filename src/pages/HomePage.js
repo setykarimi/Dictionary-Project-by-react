@@ -25,7 +25,7 @@ const HomePage = () => {
 
   useEffect(() => {
     http
-      .get(`http://api.vajehyab.com/v3/search?token=${token}&q=${input}&type=exact&filter=${database}`)
+      .get(`/search?token=${token}&q=${input}&type=exact&filter=${database}`)
       .then((res) => {
         dehkhodaDatabaseHandler();
         amidDatabaseHandler()
