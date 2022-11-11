@@ -1,7 +1,7 @@
 const DatabaseBox = ({ meaning, databseTitle }) => {
   return (
-    <div className='meaning-section__box' style={{ display: meaning && meaning.length ? 'block' : 'none' }}>
-      {meaning && meaning.length !== 0 ? <div className='meaning-section__box-title'><span>لغت نامه: </span> <h3 className='database-title'>{databseTitle}</h3></div> : ''}
+    <div className='meaning-section__box'>
+    <div className='meaning-section__box-title'><span>لغت نامه: </span> <h3 className='database-title'>{databseTitle}</h3></div>
       {meaning.map((item, key) => {
         return (
           <div key={key}>
