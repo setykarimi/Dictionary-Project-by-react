@@ -1,10 +1,15 @@
-import Header from "../components/Header/Header"
-
+import Header from "../components/Header/Header";
+import Sidebar from "../components/Sidebar/Sidebar";
 
 const Layout = ({ children, input, changeInputHandler, getResultHandler }) => {
     return (
         <>
-            {children}
+            <Header input={input} changeInputHandler={changeInputHandler} getResultHandler={getResultHandler} />
+
+            <div className='container'>
+                <Sidebar />
+                {children}
+            </div>
         </>
     )
 }
