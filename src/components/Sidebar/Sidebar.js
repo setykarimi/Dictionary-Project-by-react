@@ -16,13 +16,13 @@ const Sidebar = () => {
       <div className={`sidebar ${showSidebar === true ? 'activeSidebar' : ''}`}>
         <ul>
           <li>
-            <NavLink to="/" end className={navData => navData.isActive ? 'sidebar__active-menu' : ""}>
+            <NavLink to="/" end className={navData => navData.isActive ? 'sidebar__active-menu' : ""} onClick={() => setShowSidebar(false)}>
               <img src={Home} alt='home' />
               <span>خانه</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about-us" className={navData => navData.isActive ? 'sidebar__active-menu' : ""}>
+            <NavLink to="/about-us" className={navData => navData.isActive ? 'sidebar__active-menu' : ""} onClick={() => setShowSidebar(false)}>
               <img src={AboutUs} alt="about-us" />
               <span>درباره من</span>
             </NavLink>
