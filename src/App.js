@@ -113,6 +113,17 @@ function App() {
   }
 
 
+  // const similarWordHandler = (e) => {
+  //   setInput(e.target.innerText)
+  //   dehkhodaDatabaseHandler()
+  //   amidDatabaseHandler()
+  //   moeinDatabaseHandler()
+  //   motaradefDatabaseHandler()
+  //   englishToPersianHandler()
+  //   suggestionsHandler()
+  // }
+
+
 
 
   return (
