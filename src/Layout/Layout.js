@@ -8,7 +8,9 @@ const Layout = ({ children, input, changeInputHandler, getResultHandler }) => {
 
             <div className='container'>
                 <Sidebar />
+                <section className='content'>
                 {children}
+                </section>
             </div>
         </>
     )
