@@ -11,15 +11,12 @@ function App() {
   // States
   const [input, setInput] = useState('');
   const [suggestions, setSuggestions] = useState([]);
-  const databases =
-    { dehkhoda: "dehkhoda", amid: "amid", moein: "moein", motaradef: "motaradef", en2fa: "en2fa" };
-  const [resultData, setResultData] = useState({
-    dehkhoda: [],
-    amid: [],
-    moein: [],
-    motaradef: [],
-    english: []
-  });
+  const databases = { dehkhoda: "dehkhoda", amid: "amid", moein: "moein", motaradef: "motaradef", en2fa: "en2fa" };
+  const [dehkhoda, setDehkhoda] = useState([]);
+  const [amid, setAmid] = useState([]);
+  const [moein, setMoien] = useState([]);
+  const [motaradef, setMotaradef] = useState([]);
+  const [english, setEnglish] = useState([]);
   const [loading, setLoading] = useState(false)
   const token = "68284.t5Gzego6SX28dzh71Un3aUZMAM2a0GIY7pkyzNEo";
 
@@ -31,40 +28,36 @@ function App() {
   }
 
   const getResultHandler = (e) => {
+
     if (e.key === 'Enter') {
-      dehkhodaDatabaseHandler();
-      motaradefDatabaseHandler();
-      amidDatabaseHandler();
-      moeinDatabaseHandler();
-      englishToPersianHandler();
+      if (dehkhoda.length !== 0 || english.length !== 0 || moein.length !== 0) {
+        setDehkhoda([]);
+        setAmid([]);
+        setMotaradef([]);
+        setEnglish([]);
+        setMoien([])
+        setSuggestions([])
+      }
+      else {
+        dehkhodaDatabaseHandler();
+        motaradefDatabaseHandler();
+        amidDatabaseHandler();
+        moeinDatabaseHandler();
+        englishToPersianHandler();
+        suggestionsHandler()
+      }
     }
   }
-
-
 
   const dehkhodaDatabaseHandler = () => {
     setLoading(true)
     http
       .get(`/search?token=${token}&q=${input}&type=exact&filter=${databases.dehkhoda}`)
       .then((res) => {
-        console.log('dehkhoda', res.data.data.results);
-        setResultData({ ...resultData, dehkhoda: res.data.data.results });
+        setDehkhoda(res.data.data.results);
         setLoading(false);
       })
-      .catch((err) => { })
-  }
-
-
-  const motaradefDatabaseHandler = () => {
-    setLoading(true)
-    http
-      .get(`/search?token=${token}&q=${input}&type=exact&filter=${databases.motaradef}`)
-      .then((res) => {
-        console.log('motaradef', res.data.data.results);
-        setResultData({ ...resultData, motaradef: res.data.data.results });
-        setLoading(false);
-      })
-      .catch((err) => { })
+      .catch((err) => console.log(err.message))
   }
 
   const amidDatabaseHandler = () => {
@@ -72,11 +65,21 @@ function App() {
     http
       .get(`/search?token=${token}&q=${input}&type=exact&filter=${databases.amid}`)
       .then((res) => {
-        console.log('amid', res.data.data.results);
-        setResultData({ ...resultData, amid: res.data.data.results });
+        setAmid(res.data.data.results);
         setLoading(false);
       })
-      .catch((err) => { })
+      .catch((err) => console.log(err.message))
+  }
+
+  const motaradefDatabaseHandler = () => {
+    setLoading(true)
+    http
+      .get(`/search?token=${token}&q=${input}&type=exact&filter=${databases.motaradef}`)
+      .then((res) => {
+        setMotaradef(res.data.data.results);
+        setLoading(false);
+      })
+      .catch((err) => console.log(err.message))
   }
 
   const moeinDatabaseHandler = () => {
@@ -84,11 +87,10 @@ function App() {
     http
       .get(`/search?token=${token}&q=${input}&type=exact&filter=${databases.moein}`)
       .then((res) => {
-        console.log('moein', res.data.data.results);
-        setResultData({ ...resultData, moein: res.data.data.results });
+        setMoien(res.data.data.results);
         setLoading(false);
       })
-      .catch((err) => { })
+      .catch((err) => console.log(err.message))
   }
 
   const englishToPersianHandler = () => {
@@ -96,11 +98,10 @@ function App() {
     http
       .get(`/search?token=${token}&q=${input}&type=exact&filter=${databases.english}`)
       .then((res) => {
-        console.log('english', res.data.data.results);
-        setResultData({ ...resultData, english: res.data.data.results });
+        setEnglish(res.data.data.results);
         setLoading(false);
       })
-      .catch((err) => { })
+      .catch((err) => console.log(err.message))
   }
 
   const suggestionsHandler = () => {
@@ -112,30 +113,25 @@ function App() {
       .catch((err) => { })
   }
 
-
-  // const similarWordHandler = (e) => {
-  //   setInput(e.target.innerText)
-  //   dehkhodaDatabaseHandler()
-  //   amidDatabaseHandler()
-  //   moeinDatabaseHandler()
-  //   motaradefDatabaseHandler()
-  //   englishToPersianHandler()
-  //   suggestionsHandler()
-  // }
-
-
+  const similarWordHandler = (e) => {
+    setInput(e.target.innerText)
+    dehkhodaDatabaseHandler()
+    amidDatabaseHandler()
+    moeinDatabaseHandler()
+    motaradefDatabaseHandler()
+    englishToPersianHandler()
+    suggestionsHandler()
+  }
 
 
   return (
-    <>
-      <Layout input={input} changeInputHandler={changeInputHandler} getResultHandler={getResultHandler}>
-        <Routes>
-          <Route path='/' element={<HomePage input={input} loading={loading} resultData={resultData} />} />
-          <Route path='/about-us' element={<AboutUs />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Layout>
-    </>
+    <Layout input={input} changeInputHandler={changeInputHandler} getResultHandler={getResultHandler}>
+      <Routes>
+        <Route path='/' element={<HomePage input={input} loading={loading} dehkhoda={dehkhoda} amid={amid} moein={moein} motaradef={motaradef} english={english} similarWordHandler={similarWordHandler} suggestions={suggestions} />} />
+        <Route path='/about-us' element={<AboutUs />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Layout>
   )
 }
 
